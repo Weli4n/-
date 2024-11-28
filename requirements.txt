@@ -1,0 +1,1 @@
+piton-telegram-bot==3.11.10

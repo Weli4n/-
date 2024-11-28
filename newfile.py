@@ -13,8 +13,11 @@ async def help_command(update: Update, context: CallbackContext):
 
 # Основной код
 def main():
-    # Вставьте сюда токен вашего бота
-    TOKEN = "7882758962:AAF290MMO3a-R8XQz7oQ8gwGgnkom94-9qY"
+    # Получаем токен из переменной окружения
+    TOKEN = os.getenv("BOT_TOKEN")
+
+    if not TOKEN:
+        raise ValueError("Токен бота не найден. Убедитесь, что переменная окружения BOT_TOKEN настроена.")
 
     # Создаём приложение
     application = Application.builder().token(TOKEN).build()
